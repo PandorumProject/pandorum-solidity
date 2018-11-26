@@ -25,15 +25,15 @@ Under construction
 Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-brainstorm.PNG)
 
-Users have 5 Merit Votes to distribute every three days. The process of ideas selection will be done over a championiship-like process.
+* Users have 5 Merit Votes to distribute every three days. The process of ideas selection will be done over a championiship-like process.
 
- "n" amount of ideas will be selected, in a pre-phase, then next round (n/2) and so on, untill two ideas clashes, and the network can decide with a 51% of approvation. The scope of "n" will be determined based on user amount.
+* "n" amount of ideas will be selected, in a pre-phase, then next round (n/2) and so on, untill two ideas clashes, and the network can decide with a 51% of approvation. The scope of "n" will be determined based on user amount.
 
-Ideas are mean to recieve 5% of the total token distribution assigned over time.
+* Ideas are mean to recieve 5% of the total token distribution assigned over time.
 
-If a project correctly passes the Brainstorm process, the creative theoretical users will be able to start defining the objetives of each projects via proposals, the protocol is meant to assign tasks to responsible peers by an active userbase consensys.
+* If a project correctly passes the Brainstorm process, the creative theoretical users will be able to start defining the objetives of each projects via proposals, the protocol is meant to assign tasks to responsible peers by an active userbase consensys.
 
-For each Idea Vote users will have the possibility to do an impact feedback to the idea, and by other hand, start to defining the main project objetives in case, the idea passes to the next phase, the goal is that projects will be enough defined to start acting after it passes the "Final of Ideas"
+* For each Idea Vote users will have the possibility to do an impact feedback to the idea, and by other hand, start to defining the main project objetives in case, the idea passes to the next phase, the goal is that projects will be enough defined to start acting after it passes the "Final of Ideas"
 
 ### Pandorum Tasks
 
