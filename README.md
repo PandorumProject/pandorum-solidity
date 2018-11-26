@@ -14,6 +14,8 @@ Join us or start competing, anyways lets make this a better place.
 This protocol is meant to have two kind of users, one is the high creativiy theoretical user which will be helpfull to direct the projects. The other will be the Maker, which will have the assigned tasks from each projects.
 To really make a good benefit among users, this protocol has been thinked to just use one a project a time, so token emition can really be focused on getting things done, less dependence on userbase consistency.
 
+![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-flow.png)
+
 ### Pandorum Brainstorm
 
 Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
