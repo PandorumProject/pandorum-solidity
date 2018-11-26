@@ -16,6 +16,8 @@ To really make a good benefit among users, this protocol has been thinked to jus
 
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-flow.png)
 
+For each Idea published in the Pandorum Blockchain, one smart-contract with all the requiered protocol will be made, even tough an idea could miss the Idea Clash event, its still possible to ask for crowdfunding in order to make the project happen. 
+
 ### Pandorum Brainstorm
 
 Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
