@@ -19,7 +19,14 @@ To really make a good benefit among users, this protocol has been thinked to jus
 For each Idea published in the Pandorum Blockchain, one smart-contract with all the requiered protocol will be made, even tough an idea could miss the Idea Clash event, its still possible to ask for crowdfunding in order to make the project happen. 
 
 ### To Consider 
-Under construction
+
+Altough this is a Beta Only Version, we believe this could be very usefull under some certain aspect of characteristics which will be mentioned below.
+
+* Pandorum Token is the way of paying users for finishing tasks or making proposals in the theoretical level
+* Merit Token is a way of accountability of impact, which are sent only in one direction after it gets burned for Pandorum Tokens.
+* Ethereum Blockchain could make this system extremly expensive, thats why side-chains investigations are on-going, for an scalabe, low-cost network (Maybe bandwith one, Maybe Loom SDK)
+* Code actually Only Works on Compiler V.0.4.23 
+
 ### Pandorum Brainstorm (Idea's Clatch)
 
 Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
@@ -35,6 +42,7 @@ Protocol opens the Polls for open-ideas proposals, every participant in Register
 
 * For each Idea Vote users will have the possibility to do an impact feedback to the idea, and by other hand, start to defining the main project objetives in case, the idea passes to the next phase, the goal is that projects will be enough defined to start acting after it passes the "Final of Ideas"
 
+* Allowing Crowdfunding could equal that some proyect dont need to be selected by the Poll Cycles
 ### Pandorum Tasks
 
 When objetives are defined, freelancers or "makers" will be able to make proposals about how to solve each objetive, each task will have a determined amout of reward, based on the reserved amount of tokens held in the smart-contract of a winner idea.
@@ -59,9 +67,7 @@ under construction
 ### Handling peer-to-peer issues
 
 ### Hanlding Resolutors
-
-## Allowing Crowdfunding = No need of TokenEmit
-
+ 
 ## How to mitigate Gas entry barrier for users
 
 under construction
