@@ -24,6 +24,7 @@ Ideas are mean to recieve 5% of the total token distribution assigned over time.
 
 If a project correctly passes the Brainstorm process, the creative theoretical users will be able to start defining the objetives of each projects via proposals, the protocol is meant to assign tasks to responsible peers by an active userbase consensys.
 
+### Pandorum Tasks
 
 ## How to Deploy
 
@@ -31,9 +32,19 @@ If a project correctly passes the Brainstorm process, the creative theoretical u
 
 under construction
 
+### Pros & Cons
+
 ## How to Administrate
 
-under construction
+### User Register
+
+### User Block
+
+### Handling peer-to-peer issues
+
+### Hanlding Resolutors
+
+### 
 
 ## How to mitigate Gas entry barrier for users
 
