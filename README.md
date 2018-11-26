@@ -1,7 +1,7 @@
 ## Synopsis
 
 Smart-contracts will allow us to make a total new way of organization and task-making from open-collaborative projects. We have made a RegisterUser contract, Pandorum Protocol contract, Freelancing scrow contract and Token Emit contract.
-We believe that in the right User-Experience this will bring a new way of making income from apps on internet, so maybe we can reduce the pain produced by purposely failed economies.
+We believe that with the right UX this will bring a new way of making income from apps on internet, so maybe we can reduce the pain produced by purposely failed economies.
 
 This protocol will allow users to make straight collaborative projects from ideas, no need of knowledge, no need of extra action, just think and share.
 
@@ -24,7 +24,13 @@ Ideas are mean to recieve 5% of the total token distribution assigned over time.
 
 If a project correctly passes the Brainstorm process, the creative theoretical users will be able to start defining the objetives of each projects via proposals, the protocol is meant to assign tasks to responsible peers by an active userbase consensys.
 
+For each Idea Vote users will have the possibility to do an impact feedback to the idea, and by other hand, start to defining the main project objetives in case, the idea passes to the next phase, the goal is that projects will be enough defined to start acting after it passes the "Final of Ideas"
+
 ### Pandorum Tasks
+
+When objetives are defined, freelancers or "makers" will be able to make proposals about how to solve each objetive, each task will have a determined amout of reward, based on the reserved amount of tokens held in the smart-contract of a winner idea.
+
+
 
 ## How to Deploy
 
@@ -32,7 +38,7 @@ If a project correctly passes the Brainstorm process, the creative theoretical u
 
 under construction
 
-### Pros & Cons
+## Pros & Cons
 
 ## How to Administrate
 
@@ -44,7 +50,7 @@ under construction
 
 ### Hanlding Resolutors
 
-### 
+## Allowing Crowdfunding = No need of TokenEmit
 
 ## How to mitigate Gas entry barrier for users
 
