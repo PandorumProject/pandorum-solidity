@@ -1,3 +1,5 @@
+![pandorum logo](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-4k.png)
+
 ## Synopsis
 
 Smart-contracts will allow us to make a total new way of organization and task-making from open-collaborative projects. We have made a RegisterUser contract, Pandorum Protocol contract, Freelancing scrow contract and Token Emit contract.
