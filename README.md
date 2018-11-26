@@ -5,7 +5,7 @@
 Smart-contracts will allow us to make a total new way of organization and task-making from open-collaborative projects. We have made a RegisterUser contract, Pandorum Protocol contract, Freelancing scrow contract and Token Emit contract.
 We believe that with the right UX this will bring a new way of making income from apps on internet, so maybe we can reduce the pain produced by purposely failed economies.
 
-This protocol will allow users to make straight collaborative projects from ideas, no need of knowledge, no need of extra action, just think and share.
+This protocol will allow users to make straight collaborative projects from ideas, no need of extra knowledge, no need of extra action, just think and share.
 
 Join us or start competing, anyways lets make this a better place.
 
