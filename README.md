@@ -37,6 +37,7 @@ For each Idea Vote users will have the possibility to do an impact feedback to t
 When objetives are defined, freelancers or "makers" will be able to make proposals about how to solve each objetive, each task will have a determined amout of reward, based on the reserved amount of tokens held in the smart-contract of a winner idea.
 
 
+![pandorum task](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-task.png)
 
 ## How to Deploy
 
