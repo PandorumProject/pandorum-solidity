@@ -1,13 +1,13 @@
 ![pandorum logo](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-4k.png)
 
-Under Production... the amount of typos on this document is around to AWESOME
-
 ## Synopsis
 
 Smart-contracts will allow us to make a total new way of organization and task-making from open-collaborative projects that are rewarded with ERC-20 Token (lets leave the Ether for Gas only). We have made a RegisterUser contract, Pandorum Protocol contract, Freelancing scrow contract and Token Emit contract.
 We believe that with the right UX this will bring a new way of making income from apps on internet, so maybe we can reduce the pain produced by purposely failed economies.
 
 This protocol will allow users to make straight collaborative projects from ideas, no need of extra knowledge, no need of extra action, just think and share.
+
+
 
 Join us or start competing, anyways lets make this a better place.
 
@@ -27,6 +27,8 @@ Altough this is a Beta Only Version, we believe this could be very usefull under
 
 * Pandorum Token is the way of paying users for finishing tasks or making proposals in the theoretical level
 * Merit Token is a way of accountability of impact, which are sent only in one direction after it gets burned for Pandorum Tokens.
+* Pandorum Protocol is meant to work in cycles of constant improvement, if a cycle repeats over time, it will be more possible to stop each round, since the range of possibilities gets reduced.
+* This system requires of an Account Manager, which does not have direct permissions over the funds, but has over, starting / calling a cycle in the Network.
 * Ethereum Blockchain could make this system extremly expensive, thats why side-chains investigations are on-going, for an scalabe, low-cost network (Maybe bandwith one, Maybe Loom SDK)
 * Code actually Only Works on Compiler V.0.4.23 
 
@@ -76,41 +78,47 @@ For the system working on his entire design, we have to deploy each contract in 
 #### Pandorum Token Contract
 
 The Pandorum Token contract will handle 1000 projects over the existence of this emition, each project will have a predetermined reward that will decrease overtime. The reason for this, is to make the fact that the best moment of taking action is the present moment, making the first projects the best one to get the biggest rewards.
-
+Herw we will need to ADD the Pandorum Protocol contract Address, so it will be possible after some blocks to asign the reward.
 
 #### UserRegister Contract
 
+To avoid spam attacks only registered users might be able to post ideas, this could be amazingly scalated if we integrated an decentralized identity system. 
+So to start, deploy the UserRegister contract, msg.sender will be assigned as manager of the account system, and he will be able to manually add new members to the smart-contract.
+This coould go VERY EXPENSIVE in Ethereum Main Network
+
 #### Pandorum Protocol Contract
+
+This contract will allow many ideas, but only one will be selected, and will be used as the one that will be developed.
+
 
 #### Freelance Scrow  Contract
 
-
-
-
+This could be activated after the first Brainstorm, the moment we need to start resolving tasks, such as defining a theoreticall pillar of a project, this scrow contract will be allowed.
+An resolutor will be asigned, and he will earn income, for making the right process you should atleast first deploy the Pandorum Protocol contract.
 
 ## How to Administrate
-
+ 
 ### User Register
 
+This can only be done by the Account Manager.
+Just add the ethereum address and the _username string.
+An contract for the user will be made with 5 merit tokens to distribute, 0 EL0, and timestamp will be the actual blockheight.
+
 ### User Block
+
+This can only be done by special requeriment under the Pandorum Client, Trading Issues might end in blocking users from using the protocol.
 
 ### Handling peer-to-peer issues
 
 ### Handling Resolutors
 
 ### Start a Pandorum Brainstorm
-
-## Pros & Cons
  
 ## How to mitigate Gas entry barrier for users
-
-
 
 ## Tests
 
 ## Contributors
-
-
 
 ## License
 			
