@@ -75,7 +75,8 @@ For the system working on his entire design, we have to deploy each contract in 
 
 #### Pandorum Token Contract
 
-The Pandorum Token cotract will handle, 1000 projects over the existence of this emition, each project will have a predetermined reward that will decrease overtime. The reason for this, is to make the fact that the best moment of taking action is the present moment, making the first projects the best one to get the biggest rewards.
+The Pandorum Token contract will handle 1000 projects over the existence of this emition, each project will have a predetermined reward that will decrease overtime. The reason for this, is to make the fact that the best moment of taking action is the present moment, making the first projects the best one to get the biggest rewards.
+
 
 #### UserRegister Contract
 
