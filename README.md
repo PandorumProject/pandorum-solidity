@@ -27,6 +27,8 @@ Altough this is a Beta Only Version, we believe this could be very usefull under
 * Ethereum Blockchain could make this system extremly expensive, thats why side-chains investigations are on-going, for an scalabe, low-cost network (Maybe bandwith one, Maybe Loom SDK)
 * Code actually Only Works on Compiler V.0.4.23 
 
+#### User Impact ELO
+
 ### Pandorum Brainstorm (Idea's Clatch)
 
 Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
