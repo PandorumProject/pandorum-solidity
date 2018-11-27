@@ -104,21 +104,46 @@ This can only be done by the Account Manager.
 Just add the ethereum address and the _username string.
 An contract for the user will be made with 5 merit tokens to distribute, 0 EL0, and timestamp will be the actual blockheight.
 
-### User Block
+### Block an user
 
-This can only be done by special requeriment under the Pandorum Client, Trading Issues might end in blocking users from using the protocol.
-
-### Handling peer-to-peer issues
+This can only be done by special requeriment under the Pandorum Client, Trading Issues might end in blocking users from using the protocol. The only motive this should be applied is to mitigate malicious activities.
 
 ### Handling Resolutors
 
+Resolutors are elegible to work with issues and take a fee from it. Resolutors can only be added or removed by the Account Manager
+
+### Handling peer-to-peer issues
+
+Whenever a Contra-Peer or Task Maker have an issue, it will be possible to call it on the smart-contract interface, to bring the assigned resolutor to check the proof, this will unlock the encrypted chat from both users on the Pandorum Client. 
+
 ### Start a Pandorum Brainstorm
- 
+
+Calling for the first Pandorum Brainstorm is pretty easy, just sign the contract and it will trigger the event.
+
+For next projects it will only be possible under two options, one is if the project has no more tasks or if the projects has less than 10% of tokens to emit.
+
+
+  
 ## How to mitigate Gas entry barrier for users
+
+The costs of running this platform in the Ethereum Network could be astronomically high, this is not just tradding kitties, this requieres of users signing contracts at every moment, every time, and it needs to be fast and free.
+Is this possible? Answer yes.
+
+Have we implemented yet? First we will do the User Experience test with Ropsten TestNetwork or similar.
+
+Other solution is Loom SDK, as it offers interconctability with Ethereum Mainnet in a way that you can esure funds in a EVM smart-contract, to make mathematical supossitions on the Loom SDK Blockchain, Loom allows us to define a new chain with total new rules and with programming code very similar to Soliidty, thats SolidityX.
+ 
 
 ## Tests
 
+Emit tokens by merit has been tested with success
+Token Generation Even has been tested with success
+The Protocol itself and Brainstorm will be tested in a Workshop where we will mint first little tokens
+
+
 ## Contributors
+
+
 
 ## License
 			
