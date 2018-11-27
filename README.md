@@ -1,5 +1,5 @@
 ![pandorum logo](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-4k.png)
-
+Under construction
 ## Synopsis
 
 Smart-contracts will allow us to make a total new way of organization and task-making from open-collaborative projects that are rewarded with ERC-20 Token (lets leave the Ether for Gas only). We have made a RegisterUser contract, Pandorum Protocol contract, Freelancing scrow contract and Token Emit contract.
