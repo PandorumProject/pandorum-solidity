@@ -18,7 +18,8 @@ To really make a good benefit among users, this protocol has been thinked to jus
 
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-flow.png)
 
-For each Idea published in the Pandorum Blockchain, one smart-contract with all the requiered protocol will be made, even tough an idea could miss the Idea Clash event, its still possible to ask for crowdfunding in order to make the project happen. 
+For each Idea published in the Pandorum Blockchain, one smart-contract with all the requiered protocol will be made and it will be registered in the main contract of Pandorum Creative Network. 
+Eventough an idea could miss the Idea Clash event, its still possible to ask for crowdfunding in order to make the project happen. 
 
 ### To Consider 
 
