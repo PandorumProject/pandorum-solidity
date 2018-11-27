@@ -61,6 +61,11 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 
 ### Requeriments
 
+* Solidity Compiler, Remix IDE v. 0.4.23
+* Ether for smart-contract deploy
+* EVM Interface as MetaMask or MyEtherWallet
+* Yet still some imagination
+
 ### Contracts in Order
 
 #### UserRegister Contract
