@@ -4,7 +4,7 @@ Under Production... the amount of typos on this document is around to AWESOME
 
 ## Synopsis
 
-Smart-contracts will allow us to make a total new way of organization and task-making from open-collaborative projects that are rewarded with a ERC-20 Token. We have made a RegisterUser contract, Pandorum Protocol contract, Freelancing scrow contract and Token Emit contract.
+Smart-contracts will allow us to make a total new way of organization and task-making from open-collaborative projects that are rewarded with ERC-20 Token (lets leave the Ether for Gas only). We have made a RegisterUser contract, Pandorum Protocol contract, Freelancing scrow contract and Token Emit contract.
 We believe that with the right UX this will bring a new way of making income from apps on internet, so maybe we can reduce the pain produced by purposely failed economies.
 
 This protocol will allow users to make straight collaborative projects from ideas, no need of extra knowledge, no need of extra action, just think and share.
@@ -93,6 +93,8 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 ## Pros & Cons
  
 ## How to mitigate Gas entry barrier for users
+
+
 
 ## Tests
 
