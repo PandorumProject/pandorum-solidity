@@ -68,7 +68,7 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 #### Freelance Scrow  Contract
 #### Pandorum Protocol Contract
 
-## Pros & Cons
+
 
 ## How to Administrate
 
@@ -78,19 +78,15 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 
 ### Handling peer-to-peer issues
 
-### Hanlding Resolutors
+### Handling Resolutors
+
+## Pros & Cons
  
 ## How to mitigate Gas entry barrier for users
 
-under construction
-
 ## Tests
 
-under construction
-
 ## Contributors
-
-under construction
 
 ## License
 			
