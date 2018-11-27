@@ -61,7 +61,7 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 
 ### Requeriments
 
-* Solidity Compiler, Remix IDE v. 0.4.23
+* Solidity Compiler, Remix IDE v. 0.4.23 - (Will be updated to actual compiler ASAP)
 * Ether for smart-contract deploy
 * EVM Interface as MetaMask or MyEtherWallet
 * Yet still some imagination
@@ -85,6 +85,8 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 
 ### Handling Resolutors
 
+### Start a Pandorum Brainstorm
+
 ## Pros & Cons
  
 ## How to mitigate Gas entry barrier for users
@@ -92,6 +94,8 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 ## Tests
 
 ## Contributors
+
+
 
 ## License
 			
