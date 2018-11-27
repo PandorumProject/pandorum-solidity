@@ -62,7 +62,7 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 ### Requeriments
 
 * Solidity Compiler, Remix IDE v. 0.4.23 - (Will be updated to actual compiler ASAP)
-* Ether for smart-contract deploy
+* Ether for smart-contract deploy (Ropsten Test-Network works well)
 * EVM Interface as MetaMask or MyEtherWallet
 * Yet still some imagination
 
