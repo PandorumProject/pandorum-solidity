@@ -71,10 +71,19 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 
 ### Contracts in Order
 
-#### UserRegister Contract
+For the system working on his entire design, we have to deploy each contract in order
+
 #### Pandorum Token Contract
-#### Freelance Scrow  Contract
+
+The Pandorum Token cotract will handle, 1000 projects
+
+#### UserRegister Contract
+
 #### Pandorum Protocol Contract
+
+#### Freelance Scrow  Contract
+
+
 
 
 
