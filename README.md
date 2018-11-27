@@ -136,9 +136,9 @@ Other solution is Loom SDK, as it offers interconctability with Ethereum Mainnet
 
 ## Tests
 
-Emit tokens by merit has been tested with success
-Token Generation Even has been tested with success
-The Protocol itself and Brainstorm will be tested in a Workshop where we will mint first little tokens
+* Emit tokens by merit has been tested with success
+* Token Generation Even has been tested with success
+* The Protocol itself and Brainstorm will be tested in a Workshop where we will mint first little tokens
 
 
 ## Contributors
