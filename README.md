@@ -29,6 +29,11 @@ Altough this is a Beta Only Version, we believe this could be very usefull under
 
 #### User Impact ELO
 
+The Validation or the put of Merit Tokens in activities that end offering value to the community, will be recorded, so we can arrange an ranking of active users, and make mathematical models so users that make more immpact, get more rewarded, and users with low experience, makes less impact.
+All this is designed in order to mitigate malicious peers making accounts just to pump the vote of a project, and magnifying the impact of users that show good behavior over time.  
+
+#### Malicious User Mitigation
+
 ### Pandorum Brainstorm (Idea's Clatch)
 
 Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
@@ -56,7 +61,12 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 
 ### Requeriments
 
-under construction
+### Contracts in Order
+
+#### UserRegister Contract
+#### Pandorum Token Contract
+#### Freelance Scrow  Contract
+#### Pandorum Protocol Contract
 
 ## Pros & Cons
 
