@@ -28,7 +28,7 @@ Altough this is Alpha Version, we believe this could be very usefull under some 
 
 * Pandorum Token is the way of paying users for finishing tasks or making proposals in the theoretical level
 * Merit Token is a way of accountability of impact, which are sent only in one direction after it gets burned for Pandorum Tokens.
-* C
+* Cycles are the unit of time that we will use in the protocol, we can consider them as mid-range "time ticks"
 * Pandorum Protocol is meant to work in cycles of constant improvement, if a cycle repeats over time, it will be more possible to stop each round, since the range of possibilities gets reduced.
 * This system requires of an Account Manager, which does not have direct permissions over the funds, but has over, starting / calling a cycle in the Network.
 * We use a side-chain with no barrier entry fees to do all the voting process and low-cost modifications in the smart-contracts.
