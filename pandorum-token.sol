@@ -141,10 +141,10 @@ contract UserRegister{
     }
 
 
-    function acceptAccountManagement() public
-    onlyPreManager{
-        managerConfirmed = true;
-    }
+    //function acceptAccountManagement() public
+    //onlyPreManager{
+    //    managerConfirmed = true;
+    //}
     
 
     
