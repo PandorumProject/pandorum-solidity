@@ -41,6 +41,10 @@ All this in order to mitigate malicious peers making accounts just to pump the v
 
 #### Malicious User Mitigation
 
+In order to keep the malicious activy in the projects lowest as possible, we have designed that the protocol will allow peers to report this kind of activity at anytime, and this will result in case of proven missconduct, in the transfer of a percentaje of legit merit earned by the malicious user, to the user that makes the report.
+
+Making fake reports in order to try farm merit from other users will result in a permanently ban for the username in the network.
+
 ### Pandorum Brainstorm (Idea's Clatch)
 
 Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
