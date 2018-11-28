@@ -103,11 +103,11 @@ This contract will allow many ideas, but only one will be selected, and will be 
 
 Will just allow registered users to
 
-< ideaProposal(string _idea);
+>ideaProposal(string _idea);
 
-< pillarProposal(uint _pillarID);
+>pillarProposal(uint _pillarID);
 
-< objetiveProposal(uint _pillarID, string _objetive);
+>objetiveProposal(uint _pillarID, string _objetive);
 
 And to
 
