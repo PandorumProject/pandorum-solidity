@@ -99,7 +99,7 @@ Will allow Account Manager to add a new account to the network and initialize it
 
 This contract will allow many ideas, but only one will be selected, and will be used as the one that will be developed. In order to correctly start the process, we just need a userbase and start the Pandorum Brainstorm process, users will instantly able to publish and vote for other ideas, untill the winner idea gets selected.
 
-<pandorumBrainstormStart();
+>pandorumBrainstormStart();
 
 Will just allow registered users to
 
@@ -111,9 +111,9 @@ Will just allow registered users to
 
 And to
 
-< voteForIdea(uint _ideaID, uint _meritTransfered)
+>voteForIdea(uint _ideaID, uint _meritTransfered)
 
-< voteForObjetive(uint _ideaID, uint _estimatedPreference)
+>voteForObjetive(uint _ideaID, uint _estimatedPreference)
 
 
 
