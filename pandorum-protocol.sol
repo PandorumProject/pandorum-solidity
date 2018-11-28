@@ -3,10 +3,7 @@ pragma solidity ^0.4.18;
 
 contract Map{
  
- //////////////////////////////////////////////////////
- // STRUCTS///////////////////////////////////////////
- //////////////////////////////////////////////////
- /////////////////IDEA STRUCT///////////////////////
+//Idea data structure
     struct ideax{
         address creator;
         string idea;
@@ -15,14 +12,18 @@ contract Map{
         uint voteCount;
         address[] voterList;
     }
- /////////////PILLAR STRUCT////////////////////     
+
+//Pillar data structure
+//saves the reference of each objetive   
     struct pillarx{
         address proposer;
         string pillarName;
         string[] objetives;
         uint pillarID;
     }
-////////OBJETIVE STRUCT//////////////    
+
+//Objetive data structure   
+//Saves the ID of  father pillar
     struct objetivex{
         address proposer;
         string objetive;
@@ -30,8 +31,8 @@ contract Map{
         uint objetiveID;
     }
     
-///////TASK STRUCT/////////
-
+//Task data structure
+//saves the ID of father objetive
     struct taskx{
         address assignedTo;
         uint reward;
@@ -40,7 +41,9 @@ contract Map{
         uint fatherObjetive;
         uint taskID;
     }
-///Proposal struct
+
+// Proposal data structure
+//Works for Tasks, Pillars, Objetives
 
     struct proposalx{
         address proposer;
@@ -57,15 +60,23 @@ contract Map{
         
     }
     
-        //mapping reserved for ideas saved by address
-
+        //map of idea data structures ordered  by id;
         mapping(uint => ideax) ideaxs;
+
+        //mapping of pillars ordered by id
         mapping(uint => pillarx) pillarxs;
+
+        //mapping of objetives ordered by id
         mapping(uint => objetivex) objetivexs;
+
+        //mapping of tasks ordered by id
         mapping(uint => taskx) taskxs;
+
+        //mapping of proposals by id
         mapping(uint => proposalx) proposalxs;
-        
+       
         mapping(uint => uint) objetivesCount;
+        
         mapping(uint=>mapping(uint=>uint)) pillarGraph;
         mapping(uint=>mapping(uint=>mapping(uint=>uint))) taskGraph;
 
