@@ -88,52 +88,14 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 
 ### Contracts in Order
 
-For the system working on his entire design, we have to deploy each contract in order
+To deploy this project you will just need to run the Pandorum Token contract, which in the future, will load the entire protocol in a singe overlayed contract.
 
-#### Pandorum Token Contract
+This protocol contains four main components which are represented in each sub-contract (Lets say)
 
-The Pandorum Token contract will handle 1000 projects over the existence of this emition, each project will have a predetermined reward that will decrease overtime. The reason for this, is to make the fact that the best moment of taking action is the present moment, making the first projects the best one to get the biggest rewards.
-
->registerAccountManager(address _accountManager)
-
-Will allow us to register the user which will be responsible of selecting registering the peers in the network.
-
-#### UserRegister Contract
-
-To avoid spam attacks only registered users might be able to post ideas, this could be amazingly scalated if we integrated decentralized identity systems. 
-
-So to start, just deploy the UserRegister contract, and give the constructor the address of the Pandorum Token Contract as Input, this should keep the Account Manager updated.
-
->registerUser(address _userAddress, string _username)
-
-Will allow Account Manager to add a new account to the network and initialize it data structure with needed variables.
-
-#### Pandorum Protocol Contract
-
-This contract will allow many ideas, but only one will be selected, and will be used as the one that will be developed. In order to correctly start the process, we just need a userbase and start the Pandorum Brainstorm process, users will instantly able to publish and vote for other ideas, untill the winner idea gets selected.
-
->pandorumBrainstormStart();
-
-Will just allow registered users to
-
->ideaProposal(string _idea);
-
->pillarProposal(uint _pillarID);
-
->objetiveProposal(uint _pillarID, string _objetive);
-
-And to
-
->voteForIdea(uint _ideaID, uint _meritTransfered)
-
->voteForObjetive(uint _ideaID, uint _estimatedPreference)
-
-
-
-#### Freelance Scrow  Contract
-
-This could be activated after the first Brainstorm, the moment we need to start resolving tasks, such as defining a theoreticall pillar of a project, this scrow contract will be allowed.
-An resolutor will be asigned, and he will earn income, for making the right process you should atleast first deploy the Pandorum Protocol contract.
+* Pandorum Token
+* Pandorum Project Structure and Crowdfund
+* Pandorum Decentralized Scrow 
+* Pandorum User Register
 
 ## How to Administrate
  
