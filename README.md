@@ -82,7 +82,7 @@ When objetives are defined, freelancers or "makers" will be able to make proposa
 
 ### Requeriments
 
-* Solidity Compiler, Remix IDE v. 0.4.23 - (Will be updated to actual compiler ASAP)
+* Solidity Compiler, Remix IDE v. 0.4.23 - (Will be updated to actual compiler after first alpha pandorum-token.sol version coomes out)
 * Ether for smart-contract deploy (Ropsten Test-Network works well)
 * EVM Interface as MetaMask or MyEtherWallet
 * Yet still some imagination
