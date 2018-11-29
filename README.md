@@ -2,11 +2,15 @@
 Under construction
 ## Synopsis
 
-Smart-contracts will allow us to make a total new way of organization and task-making from open-collaborative projects that are rewarded with ERC-20 Token (lets leave the Ether for Gas only). 
+Smart-contracts will allow us to make a total new ways of organization and task-making for open-collaborative projects that are rewarded with ERC-20 Token (lets leave the Ether for Gas only). 
 
 We have made a RegisterUser contract Freelancing scrow contract and Token Emit contract which will be used by  Pandorum Protocol contract as a tool.
 
-We believe that with the right UX this will bring a new way of making income from apps on internet, so maybe we can reduce the pain produced by purposely failed economies.
+We believe that with the right UX (which we are working on)  will bring a new way of making income from apps on internet. 
+
+The development or investigation of ideas of impact that the community will choose will be possible and also to find the proper peers to resolve it tasks rewarded by Pandorum Tokens, no need of formal institutions, no need of law enforcement.
+
+So maybe finanlly can reduce the pain produced by purposely failed economies, and create a method around the world, a way to make it never happen again, ever.
 
 This protocol will allow users to make straight collaborative projects from ideas, no need of extra knowledge, no need of extra action, just think and share.
 
