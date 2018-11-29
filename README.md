@@ -8,7 +8,7 @@ We have made a RegisterUser contract Freelancing scrow contract and Token Emit c
 
 We believe that with the right UX (which we are working on)  will bring a new way of making income from apps on internet. 
 
-The development or investigation of ideas of impact that the community will choose will be possible and also to find the proper peers to resolve it tasks rewarded by Pandorum Tokens, no need of formal institutions, no need of law enforcement.
+it will be possible the development or investigation of ideas of impact that the community will choose , also to find the proper peers to resolve it tasks rewarded by Pandorum Tokens, no need of formal institutions, no need of law enforcement.
 
 So maybe finanlly can reduce the pain produced by purposely failed economies, and create a method around the world, a way to make it never happen again, ever.
 
@@ -17,12 +17,12 @@ This protocol will allow users to make straight collaborative projects from idea
 ## Pandorum Protocol Meta-Processes
 
 This protocol is meant to have two kind of users, one is the high creativiy theoretical user which will be helpfull to direct the projects. The other will be the Maker, which will have the assigned tasks from each projects.
-To really make a good benefit among users, this protocol has been thinked to just use one a project a time, so token emition can really be focused on getting things done, also less dependence on userbase consistency.
+This protocol has been designed to  start one a project at time, so token emition can really be focused on getting things done, also allow less dependency of user base
 
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-flow.png)
 
-For each Idea published in the Pandorum Blockchain, one smart-contract with all the requiered protocol will be made and it will be registered in the main contract of Pandorum Creative Network. 
-Eventough an idea could miss the Pandorum Brainstorm event, its still possible to ask for crowdfunding in order to make the project happen. 
+For each idea published in the Pandorum Blockchain, one smart-contract with all the requiered protocol will be made and it will be registered in the main contract of Pandorum Creative Network. 
+Although an idea could miss the Pandorum Brainstorm event, it is still possible to request collective funding so that the project is carried out using the same protocol.
 
 ### To Consider 
 
@@ -30,32 +30,36 @@ Altough this is alpha version only, we believe this could be very usefull under 
 
 
 * Cycles are the unit of time that we will use in the protocol, we can consider them as mid-range "time ticks"
-* Pandorum Protocol is meant to work in cycles of constant improvement, if a cycle repeats over time, it will hopefully be more probable to success each next round, since the range of possibilities gets reduced.
-* This system requires of an Account Manager, which does not have direct permissions over the funds, but has over, starting / calling a cycle in the Network.
-* We use a side-chain with no barrier entry fees to do all the voting process and low-cost modifications in the smart-contracts.
+* Pandorum Protocol is meant to work in cycles of constant improvement, if a cycle repeats over time, it will hopefully be more likely to succeed each next round, since the range of possibilities gets reduced.
+* This system requires of an Account Manager, which does not have direct permissions over the funds, but has over starting / calling a cycle in the Network and the user register.
+* We use a side-chain with no entry fees as Gas to all the voting process and low-cost modifications in the smart-contracts.
+* For mass adoption purposes, we will try to make the UX as natural as possible, so complex blockchain data willl stay just in the backend, as it should be.
 * Code only works on Remix IDE Compiler V.0.4.23, will be updated ASAP.
 * Merit Token is a way of accountability of impact, which are sent only in one direction before it gets burned for Pandorum Tokens.
 * Pandorum Token is the way of paying users for finishing tasks or making proposals in the theoretical level
 
 #### User Impact ELO & Distribution of Influence
 
-The Validation or the put of Merit Tokens in activities that end offering value to the community, will be recorded, so we can arrange an ranking of active users, and make mathematical models so users that make more impact, get more rewarded, and users with less experience, makes less impact.
+The Validation or the put of Merit Tokens in activities that end offering value to the community will be recorded, so we can arrange an ranking of active users, and make mathematical models so users that make more impact, get more rewarded, and users with less experience, makes less impact.
+
 All this in order to mitigate malicious peers making accounts just to pump the vote of a project, and magnifying the impact of users that show good behavior over time.  
 
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/parettos-1.gif)
 
 The distribution of influence, and earnings will be tuned in order to follow the Paretto's Principle, which we believe is probably one of best working methods to distribute influence over chaotic-creative systems.
-How we will make this formula most accurate possible to human behavior is still a mistery. We will make live tests under controlled conditions, in order to get the correct metrics.
+How we will make this formula most accurate possible to human behavior is still a black-box. We will make live tests under controlled conditions, in order to get the correct metrics.
 
 #### Malicious User Mitigation
 
-In order to keep the malicious activy in the projects lowest as possible, we have designed that the protocol will allow peers to report this kind of activity at anytime. This will result in case of proven missconduct, in the transfer of a percentaje of legit merit earned by the malicious user, to the user that makes the report.
+In order to keep the malicious activy in the projects lowest as possible, we have designed that the protocol will allow peers to report this kind of activity at anytime.
+
+This will result in case of proven missconduct, in the transfer of a percentaje of legit merit earned by the malicious user, to the user that makes the report.
 
 Making fake reports in order to try farm merit from other users will result in a permanently ban for the username in the network.
 
 ### Pandorum Brainstorm 
 
-Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
+Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Blockchain, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks..
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-brainstorm.PNG)
 
 * Users have 5 Merit Votes to distribute every three days. The process of ideas selection-reduction will be done over a championiship-like process.
