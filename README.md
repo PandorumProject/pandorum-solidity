@@ -20,19 +20,20 @@ To really make a good benefit among users, this protocol has been thinked to jus
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-flow.png)
 
 For each Idea published in the Pandorum Blockchain, one smart-contract with all the requiered protocol will be made and it will be registered in the main contract of Pandorum Creative Network. 
-Eventough an idea could miss the Idea Clash event, its still possible to ask for crowdfunding in order to make the project happen. 
+Eventough an idea could miss the Pandorum Brainstorm event, its still possible to ask for crowdfunding in order to make the project happen. 
 
 ### To Consider 
 
-Altough this is Alpha Version, we believe this could be very usefull under some certain aspect of characteristics which will be mentioned below.
+Altough this is alpha Version only, we believe this could be very usefull under some certain aspect of characteristics which will be mentioned below.
 
-* Pandorum Token is the way of paying users for finishing tasks or making proposals in the theoretical level
-* Merit Token is a way of accountability of impact, which are sent only in one direction after it gets burned for Pandorum Tokens.
+
 * Cycles are the unit of time that we will use in the protocol, we can consider them as mid-range "time ticks"
-* Pandorum Protocol is meant to work in cycles of constant improvement, if a cycle repeats over time, it will be more possible to stop each round, since the range of possibilities gets reduced.
+* Pandorum Protocol is meant to work in cycles of constant improvement, if a cycle repeats over time, it will hopefully be more possible to success each next round, since the range of possibilities gets reduced.
 * This system requires of an Account Manager, which does not have direct permissions over the funds, but has over, starting / calling a cycle in the Network.
 * We use a side-chain with no barrier entry fees to do all the voting process and low-cost modifications in the smart-contracts.
 * Code only works on Remix IDE Compiler V.0.4.23, will be updated ASAP.
+* Merit Token is a way of accountability of impact, which are sent only in one direction before it gets burned for Pandorum Tokens.
+* Pandorum Token is the way of paying users for finishing tasks or making proposals in the theoretical level
 
 #### User Impact ELO
 
@@ -45,12 +46,12 @@ In order to keep the malicious activy in the projects lowest as possible, we hav
 
 Making fake reports in order to try farm merit from other users will result in a permanently ban for the username in the network.
 
-### Pandorum Brainstorm (Idea's Clatch)
+### Pandorum Brainstorm 
 
 Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Client, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-brainstorm.PNG)
 
-* Users have 5 Merit Votes to distribute every three days. The process of ideas selection will be done over a championiship-like process.
+* Users have 5 Merit Votes to distribute every three days. The process of ideas selection-reduction will be done over a championiship-like process.
 
 * "n" amount of ideas will be selected, in a pre-phase, then next round (n/2) and so on, untill two ideas clashes, and the network can decide with a 51% of approvation. The scope of "n" will be determined based on user amount.
 
