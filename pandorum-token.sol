@@ -39,7 +39,7 @@ contract ERC20Interface {
 }
 
 
-contract UserRegister{
+contract KYCRegister{
  
     
     // Data structure for user Definition
@@ -212,11 +212,12 @@ contract MeritEmition {
     }
 }
 
+
 // ----------------------------------------------------------------------------
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, UserRegister {
+contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, KYCRegister {
     
     string public symbol;
     string public  name;
@@ -236,7 +237,7 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, UserReg
     mapping(address=>uint) meritRegister;
     mapping(address => mapping(address => uint)) allowed;
     
-
+    
 
 
     // ------------------------------------------------------------------------
@@ -382,6 +383,15 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, UserReg
         return 1e21;
     }
     
+
+    
+    function registerPandoruMatrix() public{
+        
+    }
+    function mintBrainstormWinner() public{
+        
+    }
+    
     // ------------------------------------------------------------------------
     // 
     // ------------------------------------------------------------------------
@@ -406,6 +416,5 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, UserReg
     // ------------------------------------------------------------------------
     function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success) {
         return ERC20Interface(tokenAddress).transfer(owner, tokens);
- 
     }
-}    
+}
