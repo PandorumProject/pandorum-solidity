@@ -14,8 +14,6 @@ So maybe finanlly can reduce the pain produced by purposely failed economies, an
 
 This protocol will allow users to make straight collaborative projects from ideas, no need of extra knowledge, no need of extra action, just think and share.
 
-Join us or start competing, anyways lets make this a better place.
-
 ## Pandorum Protocol Meta-Processes
 
 This protocol is meant to have two kind of users, one is the high creativiy theoretical user which will be helpfull to direct the projects. The other will be the Maker, which will have the assigned tasks from each projects.
