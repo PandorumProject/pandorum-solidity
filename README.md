@@ -46,7 +46,7 @@ All this in order to mitigate malicious peers making accounts just to pump the v
 
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/parettos-1.gif)
 
-![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/parettos-2.png)
+The distribution of influence, and earnings will be tuned in order to follow the Paretto's Principle, which we believe, if probably one of best working methods to distribute influence over chaotic-creative systems.
 
 #### Malicious User Mitigation
 
