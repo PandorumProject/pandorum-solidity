@@ -44,7 +44,7 @@ Altough this is alpha version only, we believe this could be very usefull under 
 The Validation or the put of Merit Tokens in activities that end offering value to the community, will be recorded, so we can arrange an ranking of active users, and make mathematical models so users that make more impact, get more rewarded, and users with less experience, makes less impact.
 All this in order to mitigate malicious peers making accounts just to pump the vote of a project, and magnifying the impact of users that show good behavior over time.  
 
-![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/parettos-1.png)
+![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/parettos-1.GIF)
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/parettos-2.png)
 
 #### Malicious User Mitigation
