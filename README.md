@@ -59,7 +59,8 @@ Making fake reports in order to try farm merit from other users will result in a
 
 ### Pandorum Brainstorm 
 
-Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Blockchain, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks..
+
+Protocol opens the Polls for open-ideas proposals, every participant in RegisterUser contract with user.state = 1 (Registered) will be allowed to publish an idea. Those ideas will be published on the Pandorum Blockchain, and users will vote and select which idea will be developed. This event is supossed to take from one to two weeks.
 ![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/pandorum-brainstorm.PNG)
 
 * Users have 5 Merit Votes to distribute every three days. The process of ideas selection-reduction will be done over a championiship-like process.
