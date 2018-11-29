@@ -28,21 +28,24 @@ Eventough an idea could miss the Pandorum Brainstorm event, its still possible t
 
 ### To Consider 
 
-Altough this is alpha Version only, we believe this could be very usefull under some certain aspect of characteristics which will be mentioned below.
+Altough this is alpha version only, we believe this could be very usefull under some certain aspect of characteristics which will be mentioned below.
 
 
 * Cycles are the unit of time that we will use in the protocol, we can consider them as mid-range "time ticks"
-* Pandorum Protocol is meant to work in cycles of constant improvement, if a cycle repeats over time, it will hopefully be more possible to success each next round, since the range of possibilities gets reduced.
+* Pandorum Protocol is meant to work in cycles of constant improvement, if a cycle repeats over time, it will hopefully be more probable to success each next round, since the range of possibilities gets reduced.
 * This system requires of an Account Manager, which does not have direct permissions over the funds, but has over, starting / calling a cycle in the Network.
 * We use a side-chain with no barrier entry fees to do all the voting process and low-cost modifications in the smart-contracts.
 * Code only works on Remix IDE Compiler V.0.4.23, will be updated ASAP.
 * Merit Token is a way of accountability of impact, which are sent only in one direction before it gets burned for Pandorum Tokens.
 * Pandorum Token is the way of paying users for finishing tasks or making proposals in the theoretical level
 
-#### User Impact ELO
+#### User Impact ELO & Distribution of Influence
 
 The Validation or the put of Merit Tokens in activities that end offering value to the community, will be recorded, so we can arrange an ranking of active users, and make mathematical models so users that make more impact, get more rewarded, and users with less experience, makes less impact.
 All this in order to mitigate malicious peers making accounts just to pump the vote of a project, and magnifying the impact of users that show good behavior over time.  
+
+![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/parettos-1.png)
+![pandorum flow](https://github.com/PandorumProject/pandorum-solidity/blob/master/images/parettos-2.png)
 
 #### Malicious User Mitigation
 
