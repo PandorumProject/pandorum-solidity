@@ -4,11 +4,12 @@
 
   <img src="https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-medium.png">
 
-
+  <div align="center>		
   <a href="http://pandorum.io">Website</a> |
   <a href="http://t.me/PandorumCommunity">Telegram</a> |
   <a href="mailto:info@pandorum.io">Email</a>
   <br/>	
+  </div>	
 </p>
 
 
