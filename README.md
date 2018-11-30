@@ -1,11 +1,13 @@
 
 <p align="center">
+
+
+  <img src="https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-medium.png">
   <b>Some Links:</b><br>
   <a href="http://pandorum.io">Website</a> |
   <a href="http://t.me/PandorumCommunity">Telegram</a> |
   <a href="mailto:info@pandorum.io">Email</a>
-  <br><br>
-  <img src="https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-medium.png">
+  <br/>	
 </p>
 
 
