@@ -1,16 +1,12 @@
-
 <p align="center">
-
-
-  <img src="https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-medium.png">
-
-  <div align="center>		
-  <a href="http://pandorum.io">Website</a> |
+  <b>Our Links:</b><br>
+  <a href="http://pandorum.io">Landing Page</a> |
   <a href="http://t.me/PandorumCommunity">Telegram</a> |
-  <a href="mailto:info@pandorum.io">Email</a>
-  <br/>	
-  </div>	
+  <a href="#">White Paper</a>
+  <br><br>
+  <img src="https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-medium.png">
 </p>
+
 
 
 ## Synopsis
