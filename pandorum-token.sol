@@ -42,38 +42,16 @@ contract ERC20Interface {
 contract KYCRegister{
  
     
-    // Data structure for user Definition
-    
-    struct userX{
-        
-        string username;
-        address userAddress;
-        uint joinBlock;
-        uint activeMerits; //Merits used to vote
-        uint recievedMerits;//Total Count of Merit
-        uint totalTasks;
-        uint state; //0. Registered 1. Blocked 2. Banned
-        uint openIssues;
-            
-    }
-    
+
     struct kycUser{
-        address kycAddress;
+        address userAddress;
         uint joinBlock;
         uint rangePrice; //1 = (20-100$ USD // 2= (100-5000$ USD) // 3= (5000-50000 USD)
         string userHash; //some key information of the KYC will be hashed and saved in the blockchain , thats name + origin location
     }
-    
         //User Registry Mappings
-        
-        mapping(uint => userX) userlist;
-        mapping(string=>uint) userIDList;
-        mapping(string => bool) isRegistered;
+        mapping(uint=>kycUser) kycUserList;
         uint usercount = 0;
-
-        
-        address public accountManager;
-        bool public managerConfirmed;
         address public creator;
     // ------------------------------------------------------------------------
     // Constructor
@@ -86,67 +64,17 @@ contract KYCRegister{
         _;
     }
     
-          modifier onlyAccountManager 
-        {
-            require(msg.sender == accountManager);
-            _;
-        }
-                  modifier onlyPreManager 
-        {
-            require(msg.sender == accountManager && managerConfirmed == false);
-            _;
-        }
-          modifier uniqueUser (string _username)
-        {
-            require(isRegistered[_username] == false);
-            _;
-        }
-        
-          modifier onlyRegisteredUser (string _username)
-        {
-            require(isRegistered[_username] == true);
-            _;
-        }
-    
-    //function registerKYCUser(address _kycAddress, string _kycUserHash) public onlyAccountManager{
+     //function registerKYCUser(address _kycAddress, string _kycUserHash) public onlyAccountManager{
     //}        
     
-    function registerUser (string _username, address _userAddy) 
+    function registerUser ( address _userAddy, uint _range, string _userHash) 
     public
-    onlyAccountManager
-    uniqueUser(_username){
+    onlyCreator{
         usercount++;
-        userIDList[_username] = usercount;
-        userlist[usercount].username = _username;
-        userlist[usercount].userAddress = _userAddy;
-        userlist[usercount].joinBlock = now;
-        userlist[usercount].activeMerits = 5;
-        userlist[usercount].recievedMerits = 0;
-        userlist[usercount].totalTasks = 0;
-        userlist[usercount].state = 0;
-        userlist[usercount].openIssues = 0;
-        isRegistered[_username] = true;
-        
+        kycUserList[usercount].userAddress = _userAddy;
+        kycUserList[usercount].rangePrice = _range;
+        kycUserList[usercount].userHash= _userHash;
     }
-    
-    function reportUser (string _username)
-    public
-    onlyRegisteredUser(_username){
-        userlist[userIDList[_username]].openIssues++;
-    }
-    
-    function registerAccountManager(address _managerAccount) public onlyCreator{
-        accountManager = _managerAccount;
-        managerConfirmed = false;
-    }
-
-
-    //function acceptAccountManagement() public
-    //onlyPreManager{
-    //    managerConfirmed = true;
-    //}
-    
-
     
 }
 
@@ -188,36 +116,14 @@ contract Owned {
     }
 }
 
-contract MeritEmition {
-    //For each user registered in the UserBase merit will be minted if required
-    
-    mapping(uint=>address) userBase;
-    uint public totalUsers;
-    
-    mapping(address=>uint) meritBase;
-    uint public totalMerit;
-    
-    function signForMerit() public{
-        if(meritBase[msg.sender]==0){
-            meritBase[msg.sender] = 1;
-            userBase[totalUsers] = msg.sender;
-            totalMerit++;
-            totalUsers++;
-        }
-        
-    } 
-    
-    function getTotalMerit()public view returns(uint){
-        return totalMerit;
-    }
-}
+
 
 
 // ----------------------------------------------------------------------------
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, KYCRegister {
+contract PandorumToken is ERC20Interface, Owned, SafeMath, KYCRegister {
     
     string public symbol;
     string public  name;
@@ -244,25 +150,35 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, KYCRegi
     // Constructor
     // ------------------------------------------------------------------------
     constructor() public {
+        
         symbol = "Pandorum Token";
         name = "PDT";
         decimals = 18;
+        
         bonusEnds = now + 1 weeks;
         endDate = now + 7 weeks;
+        
         _totalSupply = 7e26;
+        
         _emitSupply = 1e26;
-        emitionSystem = false;
+        
         toEmit = 1e24;
-        totalUsers = 0;
-        totalMerit = 0;
         
-        //Reserved tokens for Pandorum Founders
-        balances[address(0x092EaB8751CCB99b1C0b87ff816fa6dBd6513Ea5)]=42e24;
-        emit Transfer(address(0), 0x092EaB8751CCB99b1C0b87ff816fa6dBd6513Ea5, 42e24);
+        //Reserved tokens for Pandorum Founders - 10% of tokens
         
+        balances[address(0x02E6B4Ee9d9DA93F1A73fC910f0eBb9AF6A7970D)]=70e24;
+        emit Transfer(address(0), 0x02E6B4Ee9d9DA93F1A73fC910f0eBb9AF6A7970D, 70e24);
+        
+        //Reserved tokens for Airdrops - 10% of tokens
+
+        //Reserved for Token Sale - 30% of tokens
+        
+        //Reserved for Pandorum Brainstorms - 40% of tokens
+        
+        //Reserved for Private Investor - 10% of tokens
+
         //Reserved tokens for Merit System
        // balances[address(0)]= 198e24;
-       
         totalSold = balances[address(0x092EaB8751CCB99b1C0b87ff816fa6dBd6513Ea5)] ;
 
     }
@@ -271,7 +187,7 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, KYCRegi
     // Total supply
     // ------------------------------------------------------------------------
     function totalSupply() public constant returns (uint) {
-        return _totalSupply - _emitSupply;
+        return _totalSupply  - balances[address(0)];
     }
 
     // ------------------------------------------------------------------------
@@ -365,32 +281,8 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, KYCRegi
         emitionSystem = true;
     }
     
-    function emitionCycle() public {
-        
-        tokenPerMerit = safeDiv(toEmit,getTotalMerit());
-        uint i;
-        
-        for(i=0;i<totalUsers;i++){
-            balances[userBase[i]] = safeAdd(balances[userBase[i]], safeMul(tokenPerMerit, meritBase[msg.sender]));
-            emit Transfer(this, userBase[i] , safeMul(tokenPerMerit, meritBase[msg.sender]));
-        }
-        
-        _emitSupply = _emitSupply - toEmit;
-        toEmit = toEmit - calcEmitDifferential();
-    }
-    
-    function calcEmitDifferential() public pure returns(uint){
-        return 1e21;
-    }
-    
 
-    
-    function registerPandoruMatrix() public{
-        
-    }
-    function mintBrainstormWinner() public{
-        
-    }
+ 
     
     // ------------------------------------------------------------------------
     // 
@@ -403,6 +295,7 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, MeritEmition, KYCRegi
         } else {
             tokens = msg.value * 12000000;
         }
+        
         balances[msg.sender] = safeAdd(balances[msg.sender], tokens);
         emit Transfer(this, msg.sender, tokens);
         totalSold = totalSold+tokens;
