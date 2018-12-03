@@ -2,7 +2,7 @@
   <b>Our Links:</b><br>
   <a href="http://pandorum.io">Landing Page</a> |
   <a href="http://t.me/PandorumCommunity">Telegram</a> |
-  <a href="#">White Paper</a>
+  <a href="https://docs.google.com/document/d/10LDsKakU6ALefI37ao1MwB537Sr_zNsAxkiDF_EnweI/edit">Project Document</a>
   <br><br>
   <img src="https://github.com/PandorumProject/pandorum-solidity/blob/master/images/logo-medium.png">
 </p>
