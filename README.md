@@ -32,7 +32,7 @@ This protocol has been designed to  start one a project at time, so token emitio
 
 For each idea published in the Pandorum Blockchain, one smart-contract with all the requiered protocol will be made and it will be registered in the main contract of Pandorum Creative Network. 
 Although an idea could miss the Pandorum Brainstorm event, it is still possible to request collective funding so that the project is carried out using the same protocol.
-
+10:53 03-12-2018
 ### To Consider 
 
 Altough this is alpha version only, we believe this could be very usefull under some certain aspect of characteristics which will be mentioned below.
