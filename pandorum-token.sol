@@ -28,6 +28,7 @@ contract SafeMath {
 // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
 // ----------------------------------------------------------------------------
 contract ERC20Interface {
+    
     function totalSupply() public constant returns (uint);
     function balanceOf(address tokenOwner) public constant returns (uint balance);
     function allowance(address tokenOwner, address spender) public constant returns (uint remaining);
@@ -116,28 +117,86 @@ contract Owned {
     }
 }
 
+contract Airdrop{
+    
+    uint public airdropTotalSupply;
+    uint userHeight;
+    address airdropMaster;
+    mapping(uint=>address) airdropUsers;
+    
+    
+    constructor() public{
+         airdropTotalSupply = 70e24;
+         airdropMaster=msg.sender;
+         
+         //ASIGN THE DEFINED TO AMOUNT TO EACH CAMPAIN
+         
+         
+    }   
+}
 
+contract EventInterface{
+    
 
+    struct PandorumEvent{
+        
+        address winnerContract;
+        string location;
+        uint totalReward;
+        uint actualReward;
+        uint nextReward;
+    }
+    
+    address[1000] eventWinners;
+    address eventMaster;
+    uint eventHeight;
+    
+    
+    constructor() public{
+        
+        eventMaster = msg.sender;
+        eventHeight=0;
+        
+    }
+        modifier onlyEventMaster {
+        require(msg.sender == eventMaster);
+        _;
+    }
+    
+    function winnerRequest(address _protocolAddress) public
+    onlyEventMaster{
+        
+        //Will ask in pandorum-protocol contract if winner is already selected
+        //Incase of true, tokens will be asigned to _protocolAddress overtime and
+        //reward will decrease overtime, tokens will be minted by block height so all the .
+        //Also mint tokens over time to winner idea.
+        
+    }
+    
+    
+}
 
 // ----------------------------------------------------------------------------
 // ERC20 Token, with the addition of symbol, name and decimals and assisted
 // token transfers
 // ----------------------------------------------------------------------------
-contract PandorumToken is ERC20Interface, Owned, SafeMath, KYCRegister {
+contract PandorumToken is ERC20Interface, Owned, SafeMath, KYCRegister, Airdrop, EventInterface {
     
     string public symbol;
     string public  name;
     uint8 public decimals;
     uint public _totalSupply;
     uint public _emitSupply;
+    uint public _airdropSupply;
     uint public totalSold;
     uint public startDate;
     uint public bonusEnds;
     uint public endDate;
     
-    uint toEmit;
-    uint public tokenPerMerit; // 
-    bool emitionSystem;
+    
+    
+ 
+    bool mintTokens;
     
     mapping(address => uint) balances;
     mapping(address=>uint) meritRegister;
@@ -159,26 +218,25 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, KYCRegister {
         endDate = now + 7 weeks;
         
         _totalSupply = 7e26;
-        
         _emitSupply = 1e26;
         
-        toEmit = 1e24;
+
+        
         
         //Reserved tokens for Pandorum Founders - 10% of tokens
         
         balances[address(0x02E6B4Ee9d9DA93F1A73fC910f0eBb9AF6A7970D)]=70e24;
         emit Transfer(address(0), 0x02E6B4Ee9d9DA93F1A73fC910f0eBb9AF6A7970D, 70e24);
         
-        //Reserved tokens for Airdrops - 10% of tokens
-
         //Reserved for Token Sale - 30% of tokens
         
         //Reserved for Pandorum Brainstorms - 40% of tokens
         
         //Reserved for Private Investor - 10% of tokens
-
+            
         //Reserved tokens for Merit System
        // balances[address(0)]= 198e24;
+       
         totalSold = balances[address(0x092EaB8751CCB99b1C0b87ff816fa6dBd6513Ea5)] ;
 
     }
@@ -274,11 +332,11 @@ contract PandorumToken is ERC20Interface, Owned, SafeMath, KYCRegister {
     //Starts the emition
     //100,000,000 tokens to emit, emition every three days
     
-    function startEmition() public {
+    function startEmition() public onlyOwner {
         //CALCULATE TOTAL AMOUNT OF MERIT don
         //TRANSFERING TO EACH USER IN MAPPING OF MERIT
         //REPEAT IN TIME FOR NEXT EMITION WITH LESS TOKENS
-        emitionSystem = true;
+        mintTokens = true;
     }
     
 
