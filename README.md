@@ -54,7 +54,7 @@ The Validation or the put of Merit Tokens in activities that end offering value 
 All this in order to mitigate malicious peers making accounts just to pump the vote of a project, and magnifying the impact of users that show good behavior over time.  
 
 <p align="center">
-  <img src=" https://github.com/PandorumProject/pandorum-solidity/blob/master/images/voting-bonus.png">
+  <img src="https://raw.githubusercontent.com/PandorumProject/pandorum-solidity/master/images/voting-bonus.png">
 </p>
  
 The distribution of influence, and earnings will be tuned in order to follow the Paretto's Principle, which we believe is probably one of best working methods to distribute influence over chaotic-creative systems.
