@@ -64,6 +64,7 @@ contract PandorumProtocol{
         string pillarName;
         string[] objetives;
         uint pillarID;
+        uint fatherIdeaID;
     }
 
 //Objetive data structure   
@@ -170,12 +171,20 @@ contract PandorumProtocol{
         
     }
     
-    //MODIFIERS
-    
+    // ------------------------------------------------------------------------
+   //MODIFIERS
+  // ------------------------------------------------------------------------
+  
         modifier onlyEventMaster{
         _;   
     }
+        modifier validateProposal{
+        _;   
+    }
         modifier onlyRegistered{
+        _;   
+    }
+        modifier winnerProject{
         _;   
     }
         modifier onlyBrainstormEvent{
@@ -186,9 +195,14 @@ contract PandorumProtocol{
         _;   
     }
     
+    // ------------------------------------------------------------------------
     // EVENT MASTER FUNCTIONS
+    // ------------------------------------------------------------------------     
+    
     function startEvent() public onlyEventMaster{
-        brainstormEvent = true;
+        
+     brainstormEvent = true;
+     
     }
     
     function callCycle(uint _type) public onlyEventMaster{
@@ -204,32 +218,42 @@ contract PandorumProtocol{
         }
     }
     
-    
+    // ------------------------------------------------------------------------    
     // REGISTERED USERS FUNCTION
+    // ------------------------------------------------------------------------    
+    
+    //ONLY AVIABLE WHEN PANDORUM BRAINSTORM IS OPEN
     
     function addIdea( string _idea, string _problem ) public onlyRegistered onlyBrainstormEvent {
         ideaxs[ideaCount].idea = _idea;
         ideaxs[ideaCount].problem = _problem;
     }
     
-    //Only should be excecutable 
+    // Only should be excecutable 
+    
     function voteIdea() public onlyRegistered onlyBrainstormEvent {
         ideaxs[0].voteCount++;
         ideaxs[0].voterList[0] = msg.sender;
     }
     
-    //This FX should only be execcutable if caller userDefinitorID
+    // 
     
-    function addPillar(string pillar) public{
+    function voteProposal() public onlyRegistered validateProposal {
+        
+    }
+    
+    function addPillar(string pillar, uint _ideaID) public{
+        
         pillarCount++;
         pillarxs[pillarCount].pillarName = pillar;
         pillarxs[pillarCount].proposer = msg.sender;
         pillarxs[pillarCount].pillarID = pillarCount;
+        pillarxs[pillarCount].fatherIdeaID=_ideaID;
         objetivesCount[pillarCount] = 1;
+        
     }
-    
-    //This FX should only be exectuable by responsible definer by pillar
-        function addObjetive(uint pillarID, string objetive) public{
+
+    function addObjetive(uint pillarID, string objetive) public{
         
         objetivexs[objetivesCount[pillarID]].fatherPillar = pillarID;
         objetivexs[objetivesCount[pillarID]].objetive = objetive;
@@ -238,22 +262,21 @@ contract PandorumProtocol{
         objetivesCount[pillarID]++;
       
     }
+    
     function addTask(uint objetiveID, string taskDefinition) public{
+        
         taskCount++;
         taskxs[taskCount].task = taskDefinition;
         taskxs[taskCount].taskID = taskCount;
         taskxs[taskCount].fatherObjetive = objetiveID;
         taskxs[taskCount].status = "Just defined";
         taskxs[taskCount].reward = 0;
+        
     }
     
-    //Only should apply if  pillaris not ddefined
-    //Pillars should be handled by ID since using string might result users
-    //indexing same duplicated pillars
-    //so also should happen only if the ID is not used
-    //Proposer might be able to define the main objetives of subject area if accepted
-    
+
     function makePillarProposal(uint _pillarID) public{
+        
       proposalCount++;
       proposalxs[proposalCount].voterCounter = 0;
       proposalxs[proposalCount].proposer = msg.sender;
@@ -261,15 +284,16 @@ contract PandorumProtocol{
       proposalxs[proposalCount].proposalType = 1;
       
     }
-    //this fx should only allow to be executed if the objetive is defined
-    //Also if objetive is not done yet, otherwise, there will be a modify proposal
+
     
     function makeTaskProposal(uint objetiveID, string _proposal) public{
+        
         proposalCount++;
         proposalxs[proposalCount].fatherTaskID = objetiveID;
         proposalxs[proposalCount].proposer = msg.sender;    
         proposalxs[proposalCount].proposal = _proposal;
         proposalxs[proposalCount].voterCounter = 0;
+        
     }
     
     function voteForProposal(uint _proposalID) public{
