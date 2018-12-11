@@ -24,8 +24,6 @@ contract UserRegister{
         require(msg.sender == creator);
         _;
     }
-    
-
       
     //Registers users in the Creative Network
     //Assigns an address to the userID of the user mapping
@@ -91,6 +89,7 @@ contract PandorumProtocol{
 //Works for Tasks, Pillars, Objetives
 
     struct proposalx{
+        
         address proposer;
         string proposal;
         uint fatherTaskID;
@@ -219,6 +218,13 @@ contract PandorumProtocol{
         
     }
     
+    function brainstormCycle() public{
+        
+    }
+    
+    function proposalCycle() public{
+        
+    }
     // ------------------------------------------------------------------------    
     // REGISTERED USERS FUNCTION
     // ------------------------------------------------------------------------    
@@ -228,17 +234,27 @@ contract PandorumProtocol{
     function addIdea( string _idea, string _problem ) public onlyRegistered onlyBrainstormEvent {
         ideaxs[ideaCount].idea = _idea;
         ideaxs[ideaCount].problem = _problem;
+        ideaCount++;
     }
     
-    // Only should be excecutable 
+    // Only should be excecutable when Pandorum Brainstorm is activated
     
     function voteIdea() public onlyRegistered onlyBrainstormEvent {
         ideaxs[0].voteCount++;
         ideaxs[0].voterList[0] = msg.sender;
     }
     
-    //
+    // Only applies to Pandorum Brainstorm Event winner projects 
     
+    function makeProposal(uint _type, uint _pillarID, uint  _uintObjetiveID , uint _taskID ){
+        
+    }
+    // Only applies to Pandorum Brainstorm Event winner projects   
+    function voteProposal(uint _proposalID, uint meritAmount) public onlyRegistered validateProposal winnerProject {
+        
+    }
+    
+    //Only for project owner in case of Centralized
     function addPillar(string pillar, uint _ideaID) public{
         
         pillarCount++;
@@ -249,7 +265,9 @@ contract PandorumProtocol{
         objetivesCount[pillarCount] = 1;
         
     }
-
+    
+    
+    //Only for project owner in case of Centralized
     function addObjetive(uint pillarID, string objetive) public{
         
         objetivexs[objetivesCount[pillarID]].fatherPillar = pillarID;
@@ -259,7 +277,7 @@ contract PandorumProtocol{
         objetivesCount[pillarID]++;
       
     }
-    
+    //Only for project owner in case of Centralize    
     function addTask(uint objetiveID, string taskDefinition) public{
         
         taskCount++;
@@ -271,18 +289,13 @@ contract PandorumProtocol{
         
     }
     
-    function voteProposal(uint _proposalID, uint meritAmount) public onlyRegistered validateProposal winnerProject {
-        
-    }
-    
-    function getObjetiveID(uint pillarID, uint objetiveID) public view returns(uint){
-        return pillarGraph[pillarID][objetiveID];
-    }
-    
-    
     // ------------------------------------------------------------------------    
         // GETTERS
     // ------------------------------------------------------------------------
+    
+        function getObjetiveID(uint pillarID, uint objetiveID) public view returns(uint){
+        return pillarGraph[pillarID][objetiveID];
+    }
     
     
     function getMainIdea() public view returns(string){
