@@ -201,7 +201,7 @@ contract PandorumProtocol{
     
     function startEvent() public onlyEventMaster{
         
-     brainstormEvent = true;
+         brainstormEvent = true;
      
     }
     
@@ -216,6 +216,7 @@ contract PandorumProtocol{
         if(_type==2){
             //Calls a standard Pandorum Time-Tick for 
         }
+        
     }
     
     // ------------------------------------------------------------------------    
@@ -236,11 +237,7 @@ contract PandorumProtocol{
         ideaxs[0].voterList[0] = msg.sender;
     }
     
-    // 
-    
-    function voteProposal() public onlyRegistered validateProposal {
-        
-    }
+    //
     
     function addPillar(string pillar, uint _ideaID) public{
         
@@ -274,36 +271,19 @@ contract PandorumProtocol{
         
     }
     
-
-    function makePillarProposal(uint _pillarID) public{
+    function voteProposal(uint _proposalID, uint meritAmount) public onlyRegistered validateProposal winnerProject {
         
-      proposalCount++;
-      proposalxs[proposalCount].voterCounter = 0;
-      proposalxs[proposalCount].proposer = msg.sender;
-      proposalxs[proposalCount].proposal = pillarList[_pillarID];
-      proposalxs[proposalCount].proposalType = 1;
-      
-    }
-
-    
-    function makeTaskProposal(uint objetiveID, string _proposal) public{
-        
-        proposalCount++;
-        proposalxs[proposalCount].fatherTaskID = objetiveID;
-        proposalxs[proposalCount].proposer = msg.sender;    
-        proposalxs[proposalCount].proposal = _proposal;
-        proposalxs[proposalCount].voterCounter = 0;
-        
-    }
-    
-    function voteForProposal(uint _proposalID) public{
-        proposalxs[_proposalID].votesRecived++;
-        proposalxs[_proposalID].voters[proposalxs[_proposalID].votesRecived] = msg.sender;
     }
     
     function getObjetiveID(uint pillarID, uint objetiveID) public view returns(uint){
         return pillarGraph[pillarID][objetiveID];
     }
+    
+    
+    // ------------------------------------------------------------------------    
+        // GETTERS
+    // ------------------------------------------------------------------------
+    
     
     function getMainIdea() public view returns(string){
         return ideaxs[0].idea;
