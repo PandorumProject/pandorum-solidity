@@ -52,6 +52,7 @@ contract PandorumProtocol{
         string[] pillars;
         uint position;
         uint voteCount;
+        uint usersVoted;
         address[] voterList;
     }
 
@@ -126,6 +127,8 @@ contract PandorumProtocol{
        
         mapping(uint => uint) objetivesCount;
         
+        mapping(uint => uint) brainstormVotedByTimePosition;
+        
         mapping(uint=>mapping(uint=>uint)) pillarGraph;
         mapping(uint=>mapping(uint=>mapping(uint=>uint))) taskGraph;
 
@@ -136,7 +139,9 @@ contract PandorumProtocol{
         uint totalStake;
         uint proposalCount;
         
-        bool brainstormEvent;
+        uint public usersVotedBrainstorm;
+        
+        bool public brainstormEvent;
         
         string[] pillarList;
         
@@ -160,6 +165,7 @@ contract PandorumProtocol{
         taskCount = 0;
         proposalCount = 0;
         totalStake = 1000;
+        usersVotedBrainstorm = 0;
         
         brainstormEvent = false;
         
@@ -181,6 +187,9 @@ contract PandorumProtocol{
         modifier validateProposal{
         _;   
     }
+        modifier validateMerit(uint _meritAmount){
+        _;   
+    }    
         modifier onlyRegistered{
         _;   
     }
@@ -188,7 +197,11 @@ contract PandorumProtocol{
         _;   
     }
         modifier onlyBrainstormEvent{
-            require(brainstormEvent = true);
+            require(brainstormEvent == true);
+        _;   
+    }
+        modifier noBrainstormEvent{
+            require(brainstormEvent == false);
         _;   
     }
         modifier onlyAviableMerit{
@@ -206,30 +219,23 @@ contract PandorumProtocol{
      
     }
     
-    function callCycle(uint _type) public
-    onlyEventMaster{
+  
+    function brainstormCycle() public onlyEventMaster{
         
-        if(_type== 1){
-           //Calls Pandorum Brainstorm callCycle
-           //Checks if there is an idea with 51% or more of total users voted when cycle called.
-           //In case of true, smart-contract just assigns the held PDT to the winner idea and rewards are assigned to others.
-        }
-        
-        if(_type==2){
-            //Calls a standard Pandorum Time-Tick for 
-        }
-        
-    }
-    
-    function brainstormCycle() public{
-        
+        //Any idea <51% of consensus?
+        //If so assign tokens to the winner project
+        //If not in next cycle add Merit Bonus Reward based in position vs users voted and get remove from next poll half of the ideas population, from this event PDT Reward
         
         
     }
     
-    function proposalCycle() public{
+    function proposalCycle() public onlyEventMaster noBrainstormEvent{
         
-    }
+        //For each Proposal in a Pillar any with <51% of pillar-consensus
+        
+    } 
+    
+    
     // ------------------------------------------------------------------------    
     // REGISTERED USERS FUNCTION
     // ------------------------------------------------------------------------    
@@ -243,27 +249,33 @@ contract PandorumProtocol{
         
         ideaMap[ideaCount].idea = _idea;
         ideaMap[ideaCount].problem = _problem;
+        ideaMap[ideaCount].voteCount = 0;
+        ideaMap[ideaCount].usersVoted = 0;
         ideaCount++;
         
     }
     
     // Only should be excecutable when Pandorum Brainstorm is activated
     
-    function voteIdea( uint _ideaID)
+    function voteIdea( uint _ideaID, uint _meritAmount)
     public
     onlyRegistered
-    onlyBrainstormEvent {
+    onlyBrainstormEvent
+    validateMerit(_meritAmount){
         
-        ideaMap[_ideaID].voteCount++;
-        ideaMap[_ideaID].voterList[0] = msg.sender;
+
+        ideaMap[_ideaID].voterList[ideaMap[_ideaID].voteCount] = msg.sender;
+        ideaMap[_ideaID].voteCount += _meritAmount;
+        usersVotedBrainstorm++;
+        
     }
     
     // Only applies to Pandorum Brainstorm Event winner projects 
-    
-    function makeProposal(uint _type, uint _pillarID, uint  _uintObjetiveID , uint _taskID ){
+    function makeProposal(uint _type, uint _pillarID, uint  _uintObjetiveID , uint _taskID ) public winnerProject{
         
     }
-    // Only applies to Pandorum Brainstorm Event winner projects   
+    
+    // Only applies to Pandorum Brainstorm Event winner projects
     function voteProposal(uint _proposalID, uint meritAmount) public onlyRegistered validateProposal winnerProject {
         
     }
@@ -280,7 +292,6 @@ contract PandorumProtocol{
         
     }
     
-    
     //Only for project owner in case of Centralized
     function addObjetive(uint pillarID, string objetive) public{
         
@@ -291,6 +302,7 @@ contract PandorumProtocol{
         objetivesCount[pillarID]++;
       
     }
+    
     //Only for project owner in case of Centralize    
     function addTask(uint objetiveID, string taskDefinition) public{
         
@@ -304,7 +316,7 @@ contract PandorumProtocol{
     }
     
     // ------------------------------------------------------------------------    
-        // GETTERS
+    // GETTERS
     // ------------------------------------------------------------------------
     
     function getObjetiveID(uint pillarID, uint objetiveID) public view returns(uint){
