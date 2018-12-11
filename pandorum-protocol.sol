@@ -127,7 +127,8 @@ contract PandorumProtocol{
        
         mapping(uint => uint) objetivesCount;
         
-        mapping(uint => uint) brainstormVotedByTimePosition;
+        mapping(uint => uint) brainstormVotedByAddress;
+        mapping(uint => uint) brainstormMeritInputByID;
         
         mapping(uint=>mapping(uint=>uint)) pillarGraph;
         mapping(uint=>mapping(uint=>mapping(uint=>uint))) taskGraph;
@@ -266,6 +267,14 @@ contract PandorumProtocol{
 
         ideaMap[_ideaID].voterList[ideaMap[_ideaID].voteCount] = msg.sender;
         ideaMap[_ideaID].voteCount += _meritAmount;
+        
+        //SAVES THE ACTUAL USER ID INTO A ORDERED LIST OF USERS THAT VOTED -  THIS WILL BE USED TO DISTRIBUTE TOKENS WITH PARETTOS PRINCIPLE
+        
+        brainstormVotedByAddress[usersVotedBrainstorm] = getUserIDbyAddress(msg.sender);
+        
+        //SAVES THE AMOUNT OF MERIT AS INPUT TO THE ORDERED LIST, THIS WILL BE ADDED BY THE BONUS OR NOT WHEN CYCLE IS CLOSED
+        brainstormMeritInputByID[usersVotedBrainstorm]= _meritAmount;
+        
         usersVotedBrainstorm++;
         
     }
@@ -333,6 +342,10 @@ contract PandorumProtocol{
     
     function getPillarCount() public view returns(uint){
         return pillarCount;
+    }
+    
+    function getUserIDbyAddress(address _userAddress) public returns (uint) {
+        
     }
     
     function getObjetiveByID(uint pillarID, uint objetiveID) public view returns(string){
