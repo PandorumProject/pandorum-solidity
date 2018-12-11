@@ -45,7 +45,7 @@ contract UserRegister{
 contract PandorumProtocol{
  
 //Idea data structure
-    struct ideax{
+    struct ideaNode{
         address creator;
         string idea;
         string problem;
@@ -57,7 +57,7 @@ contract PandorumProtocol{
 
 //Pillar data structure
 //saves the reference of each objetive   
-    struct pillarx{
+    struct pillarNode{
         address proposer;
         string pillarName;
         string[] objetives;
@@ -67,7 +67,7 @@ contract PandorumProtocol{
 
 //Objetive data structure   
 //Saves the ID of  father pillar
-    struct objetivex{
+    struct objetiveNode{
         address proposer;
         string objetive;
         uint fatherPillar;
@@ -76,7 +76,7 @@ contract PandorumProtocol{
     
 //Task data structure
 //saves the ID of father objetive
-    struct taskx{
+    struct taskNode{
         address assignedTo;
         uint reward;
         string status;
@@ -88,7 +88,7 @@ contract PandorumProtocol{
 // Proposal data structure
 //Works for Tasks, Pillars, Objetives
 
-    struct proposalx{
+    struct proposalNode{
         
         address proposer;
         string proposal;
@@ -110,19 +110,19 @@ contract PandorumProtocol{
     ///SUCH AS A REWARD BY TASK, OR REWARD BY VOTING A PILLAR OR TASK OR OBJETIVE
    
         //map of idea data structures ordered  by id;
-        mapping(uint => ideax) ideaxs;
+        mapping(uint => ideaNode) ideaMap;
 
         //mapping of pillars ordered by id
-        mapping(uint => pillarx) pillarxs;
+        mapping(uint => pillarNode) pillarMap;
 
         //mapping of objetives ordered by id
-        mapping(uint => objetivex) objetivexs;
+        mapping(uint => objetiveNode) objectiveMap;
 
         //mapping of tasks ordered by id
-        mapping(uint => taskx) taskxs;
+        mapping(uint => taskNode) taskxs;
 
         //mapping of proposals by id
-        mapping(uint => proposalx) proposalxs;
+        mapping(uint => proposalNode) proposalMap;
        
         mapping(uint => uint) objetivesCount;
         
@@ -175,6 +175,7 @@ contract PandorumProtocol{
   // ------------------------------------------------------------------------
   
         modifier onlyEventMaster{
+            require(eventMaster == msg.sender);
         _;   
     }
         modifier validateProposal{
@@ -198,13 +199,15 @@ contract PandorumProtocol{
     // EVENT MASTER FUNCTIONS
     // ------------------------------------------------------------------------     
     
-    function startEvent() public onlyEventMaster{
+    function startEvent() public
+    onlyEventMaster{
         
          brainstormEvent = true;
      
     }
     
-    function callCycle(uint _type) public onlyEventMaster{
+    function callCycle(uint _type) public
+    onlyEventMaster{
         
         if(_type== 1){
            //Calls Pandorum Brainstorm callCycle
@@ -220,6 +223,8 @@ contract PandorumProtocol{
     
     function brainstormCycle() public{
         
+        
+        
     }
     
     function proposalCycle() public{
@@ -231,17 +236,26 @@ contract PandorumProtocol{
     
     //ONLY AVIABLE WHEN PANDORUM BRAINSTORM IS OPEN
     
-    function addIdea( string _idea, string _problem ) public onlyRegistered onlyBrainstormEvent {
-        ideaxs[ideaCount].idea = _idea;
-        ideaxs[ideaCount].problem = _problem;
+    function addIdea( string _idea, string _problem )
+    public
+    onlyRegistered
+    onlyBrainstormEvent {
+        
+        ideaMap[ideaCount].idea = _idea;
+        ideaMap[ideaCount].problem = _problem;
         ideaCount++;
+        
     }
     
     // Only should be excecutable when Pandorum Brainstorm is activated
     
-    function voteIdea() public onlyRegistered onlyBrainstormEvent {
-        ideaxs[0].voteCount++;
-        ideaxs[0].voterList[0] = msg.sender;
+    function voteIdea( uint _ideaID)
+    public
+    onlyRegistered
+    onlyBrainstormEvent {
+        
+        ideaMap[_ideaID].voteCount++;
+        ideaMap[_ideaID].voterList[0] = msg.sender;
     }
     
     // Only applies to Pandorum Brainstorm Event winner projects 
@@ -258,10 +272,10 @@ contract PandorumProtocol{
     function addPillar(string pillar, uint _ideaID) public{
         
         pillarCount++;
-        pillarxs[pillarCount].pillarName = pillar;
-        pillarxs[pillarCount].proposer = msg.sender;
-        pillarxs[pillarCount].pillarID = pillarCount;
-        pillarxs[pillarCount].fatherIdeaID=_ideaID;
+        pillarMap[pillarCount].pillarName = pillar;
+        pillarMap[pillarCount].proposer = msg.sender;
+        pillarMap[pillarCount].pillarID = pillarCount;
+        pillarMap[pillarCount].fatherIdeaID=_ideaID;
         objetivesCount[pillarCount] = 1;
         
     }
@@ -270,9 +284,9 @@ contract PandorumProtocol{
     //Only for project owner in case of Centralized
     function addObjetive(uint pillarID, string objetive) public{
         
-        objetivexs[objetivesCount[pillarID]].fatherPillar = pillarID;
-        objetivexs[objetivesCount[pillarID]].objetive = objetive;
-        objetivexs[objetivesCount[pillarID]].objetiveID = objetivesCount[pillarID];
+        objectiveMap[objetivesCount[pillarID]].fatherPillar = pillarID;
+        objectiveMap[objetivesCount[pillarID]].objetive = objetive;
+        objectiveMap[objetivesCount[pillarID]].objetiveID = objetivesCount[pillarID];
         pillarGraph[pillarID][objetivesCount[pillarID]] = objetivesCount[pillarID];
         objetivesCount[pillarID]++;
       
@@ -293,17 +307,16 @@ contract PandorumProtocol{
         // GETTERS
     // ------------------------------------------------------------------------
     
-        function getObjetiveID(uint pillarID, uint objetiveID) public view returns(uint){
+    function getObjetiveID(uint pillarID, uint objetiveID) public view returns(uint){
         return pillarGraph[pillarID][objetiveID];
     }
     
-    
-    function getMainIdea() public view returns(string){
-        return ideaxs[0].idea;
+    function getMainByID(uint _ID) public view returns(string){
+        return ideaMap[_ID].idea;
     }
     
-    function getPillarByID(uint ID) public view returns(string){
-        return pillarxs[ID].pillarName;
+    function getPillarByID(uint _ID) public view returns(string){
+        return pillarMap[_ID].pillarName;
     }
     
     function getPillarCount() public view returns(uint){
@@ -311,7 +324,7 @@ contract PandorumProtocol{
     }
     
     function getObjetiveByID(uint pillarID, uint objetiveID) public view returns(string){
-        return objetivexs[pillarGraph[pillarID][objetiveID]].objetive;
+        return objectiveMap[pillarGraph[pillarID][objetiveID]].objetive;
     }
     
     function getTaskByID(uint taskID) public view returns(string){
