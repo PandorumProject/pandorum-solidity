@@ -11,7 +11,7 @@ contract UserRegister{
    
     }
         //User Registry Mappings
-        mapping(uint=>user) userList;
+        mapping(uint=>user)  public userList;
         uint usercount = 0;
         address public creator;
     // ------------------------------------------------------------------------
@@ -33,16 +33,48 @@ contract UserRegister{
     public
     onlyCreator{
         
-        usercount++;
         userList[usercount].userAddress = _userAddy;
         userList[usercount].userState = 1;
         userList[usercount].userHash= _userHash;
+        usercount++;
     }
     
+    //HARDCODES A LIST OF USERS IN THE NETWORK, THOSE ARE THE DEFAULT ACCOUNTS OF REMIX IDE JVM ACCOUNT DIRECTORY
+    
+    function testUserRegister() public
+    onlyCreator{
+        
+        userList[usercount].userAddress = msg.sender;
+        userList[usercount].userState = 1;
+        userList[usercount].userHash= "admin";
+        usercount++;
+        
+        userList[usercount].userAddress = 0x14723a09acff6d2a60dcdf7aa4aff308fddc160c;
+        userList[usercount].userState = 1;
+        userList[usercount].userHash= "juanelo";
+        usercount++;
+        
+        userList[usercount].userAddress = 0x4b0897b0513fdc7c541b6d9d7e929c4e5364d2db;
+        userList[usercount].userState = 1;
+        userList[usercount].userHash= "romildo";
+        usercount++;
+        
+        userList[usercount].userAddress = 0x583031d1113ad414f02576bd6afabfb302140225;
+        userList[usercount].userState = 1;
+        userList[usercount].userHash= "pancrasio";
+        usercount++;
+        
+        userList[usercount].userAddress = 0xdd870fa1b7c4700f2bd7f44238821c26f7392148;
+        userList[usercount].userState = 1;
+        userList[usercount].userHash= "rafa";
+        usercount++;   
+        
+    }
+      
 }
 
 
-contract PandorumProtocol{
+contract PandorumProtocol is UserRegister{
  
 //Idea data structure
     struct ideaNode{
@@ -139,10 +171,11 @@ contract PandorumProtocol{
         uint  taskCount;
         uint totalStake;
         uint proposalCount;
-        
+        uint meritInBrainstorm;
         uint public usersVotedBrainstorm;
         
         bool public brainstormEvent;
+        bool public winnerIdea;
         
         string[] pillarList;
         
@@ -167,14 +200,10 @@ contract PandorumProtocol{
         proposalCount = 0;
         totalStake = 1000;
         usersVotedBrainstorm = 0;
-        
+        meritInBrainstorm = 0;
         brainstormEvent = false;
         
-        pillarList[0]="Default";
-        pillarList[1]="Programming";
-        pillarList[2]="Design";
-        pillarList[3]="Meta-Project";
-        
+
     }
     
     // ------------------------------------------------------------------------
@@ -219,15 +248,25 @@ contract PandorumProtocol{
          brainstormEvent = true;
      
     }
-    
-  
+
     function brainstormCycle() public onlyEventMaster{
         
-        //Any idea <51% of consensus?
-        //If so assign tokens to the winner project
-        //If not in next cycle add Merit Bonus Reward based in position vs users voted and get remove from next poll half of the ideas population, from this event PDT Reward
+        uint i;
         
         
+        for(i=0;i<usersVotedBrainstorm;i++){
+           if( ideaMap[ideaCount].voteCount > (meritInBrainstorm / 2)){
+                //Reward by Cycle   
+                winnerIdea = true;
+           }
+
+        }
+        
+        if (winnerIdea==false){
+               usersVotedBrainstorm = usersVotedBrainstorm /2;
+               //Reward by Round
+        }
+
     }
     
     function proposalCycle() public onlyEventMaster noBrainstormEvent{
@@ -236,6 +275,14 @@ contract PandorumProtocol{
         
     } 
     
+    function recieveTokens() public onlyEventMaster{
+        
+        //Confirm tokens
+        //Assign token to Pandorum Brainstorm event 5% to brainstorm event
+        //Assign token to future winner 95% of event token to project development
+    
+        
+    }
     
     // ------------------------------------------------------------------------    
     // REGISTERED USERS FUNCTION
@@ -267,14 +314,11 @@ contract PandorumProtocol{
 
         ideaMap[_ideaID].voterList[ideaMap[_ideaID].voteCount] = msg.sender;
         ideaMap[_ideaID].voteCount += _meritAmount;
-        
+        meritInBrainstorm += _meritAmount;
         //SAVES THE ACTUAL USER ID INTO A ORDERED LIST OF USERS THAT VOTED -  THIS WILL BE USED TO DISTRIBUTE TOKENS WITH PARETTOS PRINCIPLE
-        
         brainstormVotedByAddress[usersVotedBrainstorm] = getUserIDbyAddress(msg.sender);
-        
         //SAVES THE AMOUNT OF MERIT AS INPUT TO THE ORDERED LIST, THIS WILL BE ADDED BY THE BONUS OR NOT WHEN CYCLE IS CLOSED
         brainstormMeritInputByID[usersVotedBrainstorm]= _meritAmount;
-        
         usersVotedBrainstorm++;
         
     }
